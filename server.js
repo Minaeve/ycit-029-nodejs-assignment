@@ -28,6 +28,11 @@ app.get("/api/users", (req, res) => {
 // Add a new route to get a *SINGLE* user (you can use either path param or query param)
 // /api/users/1      <-- path param (req.params.id)
 // /api/users?id=1   <-- query param (req.query.id) If you go with query param, just modify the existing endpoint above instead of creating a new endpoint
+app.get("/api/users/:id", (req, res) => {
+  const userId = req.params.id;
+  const user = data.find((u) => u.id === userId);
+  res.json(user);
+});
 
 // BONUS QUESTION - Add routes to implement all the CRUD operations (POST, PUT, DELETE)
 
